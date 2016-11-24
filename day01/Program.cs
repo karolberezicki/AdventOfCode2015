@@ -19,18 +19,10 @@ namespace day01
             foreach (char instruction in source.ToCharArray())
             {
                 position++;
+                int levelChange = instruction == '(' ? 1 : -1;
+                level += levelChange;
 
-
-                if (instruction == '(')
-                {
-                    level++;
-                }
-                else
-                {
-                    level--;
-                }
-
-                if (level<0)
+                if (level < 0)
                 {
                     break;
                 }
