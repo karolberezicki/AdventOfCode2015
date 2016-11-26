@@ -4,7 +4,7 @@ using System.IO;
 
 namespace day01
 {
-    class Program
+    class Program_01
     {
         static void Main(string[] args)
         {
