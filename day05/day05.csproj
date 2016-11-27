@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{61CA43C0-2491-497F-AE2C-50635B35FC20}</ProjectGuid>
+    <ProjectGuid>{C7FA2022-390C-4F99-94FF-52038132C55B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>day03</RootNamespace>
-    <AssemblyName>day03</AssemblyName>
+    <RootNamespace>day05</RootNamespace>
+    <AssemblyName>day05</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,8 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Point.cs" />
-    <Compile Include="Program_03.cs" />
+    <Compile Include="Program_05.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
