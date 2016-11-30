@@ -1,5 +1,6 @@
 using day05;
 using day06;
+using day08;
 using Xunit;
 
 namespace UnitTests
@@ -58,5 +59,20 @@ namespace UnitTests
             Assert.Equal(lightsArray[3, 2], false);
 
         }
+
+        [Theory]
+        [InlineData(2, @"""""")]
+        [InlineData(2, @"""abc""")]
+        [InlineData(3, @"""aaa\""aaa""")]
+        [InlineData(5, @"""\x27""")]
+        [InlineData(8, @"""\x27\x27""")]
+        [InlineData(11, @"""\x27\x27\x27""")]
+        [InlineData(8, @"""csgexlb\""zqdavlxxhtdbh\""\""\x0fkpvhiphm""")]
+        [InlineData(13, @"""bvm\x28aa\\\\\""pywuhaniox\\z\\hbp\xd7mold""")]
+        public void Day08PartOne(int count, string value)
+        {
+            Assert.Equal(count, Program_08.CountNonValueCharacters(value));
+        }
+
     }
 }

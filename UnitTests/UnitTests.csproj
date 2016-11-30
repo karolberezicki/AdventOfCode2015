@@ -74,6 +74,10 @@
       <Project>{43d72ced-65a0-4e44-be1a-b370046a9884}</Project>
       <Name>day06</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Day08\day08.csproj">
+      <Project>{638b827e-faff-4b6c-ac6f-94b02a1afb6b}</Project>
+      <Name>day08</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
