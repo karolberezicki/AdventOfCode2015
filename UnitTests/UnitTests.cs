@@ -74,5 +74,19 @@ namespace UnitTests
             Assert.Equal(count, Program_08.CountNonValueCharacters(value));
         }
 
+        [Theory]
+        [InlineData(4, @"""""")]
+        [InlineData(4, @"""abc""")]
+        [InlineData(6, @"""aaa\""aaa""")]
+        [InlineData(5, @"""\x27""")]
+        [InlineData(6, @"""\x27\x27""")]
+        [InlineData(7, @"""\x27\x27\x27""")]
+        [InlineData(11, @"""csgexlb\""zqdavlxxhtdbh\""\""\x0fkpvhiphm""")]
+        [InlineData(16, @"""bvm\x28aa\\\\\""pywuhaniox\\z\\hbp\xd7mold""")]
+        public void Day08PartTwo(int count, string value)
+        {
+            Assert.Equal(count, Program_08.EncodedStringLiteralLength(value));
+        }
+
     }
 }
