@@ -9,18 +9,8 @@ namespace day11
         public static void Main(string[] args)
         {
             string oldPassword = "vzbxkghb";
-            string newPassword = oldPassword;
-
-            do
-            {
-                newPassword = IncrementPassword(newPassword);
-            } while (!(IncludesSeries(newPassword) && DoesntIncludeForbidden(newPassword) && IncludesAtLeastTwoPairs(newPassword)));
-
-            string anotherPassword = newPassword;
-            do
-            {
-                anotherPassword = IncrementPassword(anotherPassword);
-            } while (!(IncludesSeries(anotherPassword) && DoesntIncludeForbidden(anotherPassword) && IncludesAtLeastTwoPairs(anotherPassword)));
+            string newPassword = GetNewPassword(oldPassword);
+            string anotherPassword = GetNewPassword(newPassword);
 
             Console.WriteLine(newPassword);
             Console.WriteLine(anotherPassword);
@@ -28,7 +18,21 @@ namespace day11
         }
 
 
+        public static string GetNewPassword(string oldPassword)
+        {
+            string newPassword = oldPassword;
+            do
+            {
+                newPassword = IncrementPassword(newPassword);
+            } while (!IsSecurePassword(newPassword));
 
+            return newPassword;
+        }
+
+        public static bool IsSecurePassword(string input)
+        {
+            return (IncludesSeries(input) && DoesntIncludeForbidden(input) && IncludesAtLeastTwoPairs(input));
+        }
 
         public static bool IncludesSeries(string input)
         {
