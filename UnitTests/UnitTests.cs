@@ -1,6 +1,7 @@
 using day05;
 using day06;
 using day08;
+using day10;
 using Xunit;
 
 namespace UnitTests
@@ -87,6 +88,19 @@ namespace UnitTests
         {
             Assert.Equal(count, Program_08.EncodedStringLiteralLength(value));
         }
+
+        [Theory]
+        [InlineData("1", "11")]
+        [InlineData("11", "21")]
+        [InlineData("21", "1211")]
+        [InlineData("1211", "111221")]
+        [InlineData("111221", "312211")]
+        [InlineData("312211", "13112221")]
+        public void Day10_LookAndSayTest(string input, string output)
+        {
+            Assert.Equal(output, Program_10.LookAndSay(input));
+        }
+
 
     }
 }
