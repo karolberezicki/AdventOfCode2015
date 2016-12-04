@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Distance.cs" />
+    <Compile Include="Permutations.cs" />
     <Compile Include="Program_09.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
