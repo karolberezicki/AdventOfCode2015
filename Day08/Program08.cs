@@ -5,16 +5,16 @@ using System.Linq;
 
 namespace day08
 {
-    public class Program_08
+    public class Program08
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             string source = File.ReadAllText(@"..\..\input.txt");
             source = source.Remove(source.Length - 1);
             List<string> stringLiterals = source.Split('\n').ToList();
 
-            int countNonValueCharacters = stringLiterals.Select(s => CountNonValueCharacters(s)).Sum();
-            int encodedStringLiteralLength = stringLiterals.Select(s => EncodedStringLiteralLength(s)).Sum();
+            int countNonValueCharacters = stringLiterals.Select(CountNonValueCharacters).Sum();
+            int encodedStringLiteralLength = stringLiterals.Select(EncodedStringLiteralLength).Sum();
 
             Console.WriteLine("Part one (count non value chars) = {0}", countNonValueCharacters);
             Console.WriteLine("Part two (count extra chars used to encoding) = {0}", encodedStringLiteralLength);

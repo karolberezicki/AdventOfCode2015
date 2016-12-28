@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace day02
 {
-    class Program_02
+    class Program02
     {
-        static void Main(string[] args)
+        static void Main()
         {
             string source = File.ReadAllText(@"..\..\input.txt");
             source = source.Remove(source.Length - 1);

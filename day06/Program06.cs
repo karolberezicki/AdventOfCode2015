@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace day06
 {
-    public class Program_06
+    public class Program06
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             string source = File.ReadAllText(@"..\..\input.txt");
             source = source.Remove(source.Length - 1);
@@ -116,8 +114,6 @@ namespace day06
                         case Instruction.Toggle:
                             array[i, j] = !array[i, j];
                             break;
-                        default:
-                            break;
                     }
                 }
             }
@@ -140,8 +136,6 @@ namespace day06
                             break;
                         case Instruction.Toggle:
                             array[i, j] += 2;
-                            break;
-                        default:
                             break;
                     }
                 }

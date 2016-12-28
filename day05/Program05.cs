@@ -5,16 +5,16 @@ using System.Linq;
 
 namespace day05
 {
-    public class Program_05
+    public class Program05
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             string source = File.ReadAllText(@"..\..\input.txt");
             source = source.Remove(source.Length - 1);
             List<string> strings = source.Split('\n').ToList();
 
-            int niceStringsCount = strings.Count(str => IsNiceString(str));
-            int realyNiceStringsCount = strings.Count(str => IsRealyNiceString(str));
+            int niceStringsCount = strings.Count(IsNiceString);
+            int realyNiceStringsCount = strings.Count(IsRealyNiceString);
 
             Console.WriteLine("Nice string count = {0}", niceStringsCount);
             Console.WriteLine("Realy nice string count = {0}", realyNiceStringsCount);

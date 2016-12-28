@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace day11
 {
-    public class Program_11
+    public class Program11
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            string oldPassword = "vzbxkghb";
+            const string oldPassword = "vzbxkghb";
             string newPassword = GetNewPassword(oldPassword);
             string anotherPassword = GetNewPassword(newPassword);
 
@@ -73,8 +73,8 @@ namespace day11
 
         public static string IncrementPassword(string oldPassword)
         {
-            char zChar = 'z';
-            char aChar = 'a';
+            const char zChar = 'z';
+            const char aChar = 'a';
 
             bool carry = true;
             char[] password = Reverse(oldPassword).ToCharArray();

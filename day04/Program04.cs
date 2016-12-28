@@ -4,9 +4,9 @@ using System.Text;
 
 namespace day04
 {
-    class Program_04
+    class Program04
     {
-        static void Main(string[] args)
+        static void Main()
         {
             string source = "bgvyzdsv";
 
@@ -19,7 +19,7 @@ namespace day04
 
             while (true)
             {
-                string hash = CalculateMD5Hash(source + iterator.ToString());
+                string hash = CalculateMd5Hash(source + iterator.ToString());
                 if (hash.StartsWith("00000") && !secretNumber5Found)
                 {
                     secretNumber5 = iterator;
@@ -46,7 +46,7 @@ namespace day04
             Console.ReadLine();
         }
 
-        public static string CalculateMD5Hash(string input)
+        public static string CalculateMd5Hash(string input)
         {
             // step 1, calculate MD5 hash from input
             MD5 md5 = MD5.Create();
@@ -54,9 +54,9 @@ namespace day04
             byte[] hash = md5.ComputeHash(inputBytes);
             // step 2, convert byte array to hex string
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
+            foreach (byte t in hash)
             {
-                sb.Append(hash[i].ToString("x2"));
+                sb.Append(t.ToString("x2"));
             }
             return sb.ToString();
         }

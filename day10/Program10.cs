@@ -3,12 +3,12 @@ using System.Text;
 
 namespace day10
 {
-    public class Program_10
+    public class Program10
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
 
-            string input = "1113222113";
+            const string input = "1113222113";
             string output = input;
 
             for (int i = 0; i < 40; i++)

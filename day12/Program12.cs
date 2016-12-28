@@ -7,9 +7,9 @@ using System.Text.RegularExpressions;
 
 namespace day12
 {
-    public class Program_12
+    public class Program12
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             string input = File.ReadAllText(@"..\..\input.txt");
 

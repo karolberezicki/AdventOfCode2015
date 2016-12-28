@@ -4,9 +4,9 @@ using System.IO;
 
 namespace day01
 {
-    class Program_01
+    class Program01
     {
-        static void Main(string[] args)
+        static void Main()
         {
             string source = File.ReadAllText(@"..\..\input.txt");
             int countUp = source.Length - source.Replace("(", "").Length;
@@ -16,7 +16,7 @@ namespace day01
 
             int position = 0;
             int level = 0;
-            foreach (char instruction in source.ToCharArray())
+            foreach (char instruction in source)
             {
                 position++;
                 int levelChange = instruction == '(' ? 1 : -1;

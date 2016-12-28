@@ -11,27 +11,27 @@ namespace UnitTests
         [Fact]
         public void Day05PartOne()
         {
-            Assert.True(Program_05.IsNiceString("ugknbfddgicrmopn"));
-            Assert.True(Program_05.IsNiceString("aaa"));
-            Assert.False(Program_05.IsNiceString("jchzalrnumimnmhp"));
-            Assert.False(Program_05.IsNiceString("haegwjzuvuyypxyu"));
-            Assert.False(Program_05.IsNiceString("dvszwmarrgswjxmb"));
+            Assert.True(Program05.IsNiceString("ugknbfddgicrmopn"));
+            Assert.True(Program05.IsNiceString("aaa"));
+            Assert.False(Program05.IsNiceString("jchzalrnumimnmhp"));
+            Assert.False(Program05.IsNiceString("haegwjzuvuyypxyu"));
+            Assert.False(Program05.IsNiceString("dvszwmarrgswjxmb"));
         }
 
         [Fact]
         public void Day05PartTwo()
         {
-            Assert.True(Program_05.IsRealyNiceString("qjhvhtzxzqqjkmpb"));
-            Assert.True(Program_05.IsRealyNiceString("xxyxx"));
-            Assert.False(Program_05.IsRealyNiceString("uurcxstgmygtbstg"));
-            Assert.False(Program_05.IsRealyNiceString("ieodomkazucvgmuy"));
+            Assert.True(Program05.IsRealyNiceString("qjhvhtzxzqqjkmpb"));
+            Assert.True(Program05.IsRealyNiceString("xxyxx"));
+            Assert.False(Program05.IsRealyNiceString("uurcxstgmygtbstg"));
+            Assert.False(Program05.IsRealyNiceString("ieodomkazucvgmuy"));
         }
 
         [Fact]
         public void Day06ParseCommandTest()
         {
-            string stringCommand = "toggle 14,9 through 29,16";
-            Command command = Program_06.ParseCommand(stringCommand);
+            const string stringCommand = "toggle 14,9 through 29,16";
+            Command command = Program06.ParseCommand(stringCommand);
 
             Assert.Equal(command.Instruction, Instruction.Toggle);
             Assert.Equal(command.FromX, 14);
@@ -44,9 +44,9 @@ namespace UnitTests
         public void Day06PartOne()
         {
             bool[,] lightsArray = new bool[10, 10];
-            string stringCommand = "turn on 0,0 through 2,2";
-            Command command = Program_06.ParseCommand(stringCommand);
-            Program_06.ExecuteCommand(command, ref lightsArray);
+            const string stringCommand = "turn on 0,0 through 2,2";
+            Command command = Program06.ParseCommand(stringCommand);
+            Program06.ExecuteCommand(command, ref lightsArray);
 
             Assert.Equal(lightsArray[0, 0], true);
             Assert.Equal(lightsArray[0, 1], true);
@@ -72,7 +72,7 @@ namespace UnitTests
         [InlineData(13, @"""bvm\x28aa\\\\\""pywuhaniox\\z\\hbp\xd7mold""")]
         public void Day08PartOne(int count, string value)
         {
-            Assert.Equal(count, Program_08.CountNonValueCharacters(value));
+            Assert.Equal(count, Program08.CountNonValueCharacters(value));
         }
 
         [Theory]
@@ -86,7 +86,7 @@ namespace UnitTests
         [InlineData(16, @"""bvm\x28aa\\\\\""pywuhaniox\\z\\hbp\xd7mold""")]
         public void Day08PartTwo(int count, string value)
         {
-            Assert.Equal(count, Program_08.EncodedStringLiteralLength(value));
+            Assert.Equal(count, Program08.EncodedStringLiteralLength(value));
         }
 
         [Theory]
@@ -98,7 +98,7 @@ namespace UnitTests
         [InlineData("312211", "13112221")]
         public void Day10_LookAndSayTest(string input, string output)
         {
-            Assert.Equal(output, Program_10.LookAndSay(input));
+            Assert.Equal(output, Program10.LookAndSay(input));
         }
 
 

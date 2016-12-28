@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace day09
 {
-    public class Program_09
+    public class Program09
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             string source = File.ReadAllText(@"..\..\input.txt");
             source = source.Remove(source.Length - 1);
@@ -21,8 +21,9 @@ namespace day09
 
             List<List<string>> citiesPermutations = Permutations.GeneratePermutations(cities);
 
-            IEnumerable<int> pathDistances = citiesPermutations
-                .Select(permutation => FindDistance(permutation, distances));
+            List<int> pathDistances = citiesPermutations
+                .Select(permutation => FindDistance(permutation, distances))
+                .ToList();
 
             int minimalDistance = pathDistances.Min();
             int maximalDistance = pathDistances.Max();

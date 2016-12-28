@@ -5,10 +5,9 @@ using System.Linq;
 
 namespace day07
 {
-    public class Program_07
+    public class Program07
     {
-
-        public static void Main(string[] args)
+        public static void Main()
         {
             string source = File.ReadAllText(@"..\..\input.txt");
             source = source.Remove(source.Length - 1);
@@ -18,7 +17,7 @@ namespace day07
 
             string bInput = circuits.First(p => p.Split(' ')[2] == "b");
 
-            source = source.Replace(bInput, string.Format("{0} -> b", partOneResult));  //override wire b to signal a
+            source = source.Replace(bInput, $"{partOneResult} -> b");  //override wire b to signal a
             circuits = source.Split('\n').ToList();
             ushort partTwoResult = CalculateOutput(circuits);
 
