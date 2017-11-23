@@ -20,8 +20,11 @@ namespace day14
             const int secondsCount = 2503;
             var winningReindeerDistance = GetWinningReindeerDistance(reindeers, secondsCount);
 
+            List<RaceState> racers = reindeers.Select(r => new RaceState { Reindeer = r }).ToList();
+            RaceState winnerOfSecondRace = GetWinnerOfSecondRace(secondsCount, racers);
 
-            Console.WriteLine($"Winning distance: {winningReindeerDistance}");
+            Console.WriteLine($"Winning distance of first race: {winningReindeerDistance}");
+            Console.WriteLine($"Winner of second race: {winnerOfSecondRace.Reindeer.Name} with {winnerOfSecondRace.Points} points.");
             Console.ReadKey();
 
         }
@@ -34,6 +37,45 @@ namespace day14
 
             return reindeersWithTraveledDistance.OrderByDescending(rwd => rwd.Value).First().Value;
         }
+
+        private static RaceState GetWinnerOfSecondRace(int secondsCount, List<RaceState> racers)
+        {
+            for (int i = 0; i < secondsCount; i++)
+            {
+                foreach (RaceState racer in racers)
+                {
+                    if (racer.RunTime == racer.Reindeer.TravelTime)
+                    {
+                        racer.RunTime = 0;
+                        racer.RestTime = racer.Reindeer.RestTime - 1;
+                        continue;
+                    }
+
+                    if (racer.RestTime > 0)
+                    {
+                        racer.RestTime -= 1;
+                        continue;
+                    }
+
+                    racer.Traveled += racer.Reindeer.Velocity;
+                    racer.RunTime += 1;
+                }
+
+                int currentWinningDistance = racers.Select(r => r.Traveled).Max();
+
+                foreach (RaceState racer in racers)
+                {
+                    if (racer.Traveled == currentWinningDistance)
+                    {
+                        racer.Points += 1;
+                    }
+                }
+            }
+
+            RaceState winnerOfSecondRace = racers.OrderByDescending(r => r.Points).First();
+            return winnerOfSecondRace;
+        }
+
     }
 
     [DebuggerDisplay("{Name} {Velocity} km/s for {TravelTime} s, Rest = {RestTime}")]
@@ -82,4 +124,15 @@ namespace day14
             return distance;
         }
     }
+
+    [DebuggerDisplay("{Reindeer.Name} {Reindeer.Velocity} km/s | Trav: {Traveled} Run:{RunTime} Rest:{RestTime} P:{Points}")]
+    public class RaceState
+    {
+        public Reindeer Reindeer { get; set; }
+        public int Traveled { get; set; }
+        public int RunTime { get; set; }
+        public int RestTime { get; set; }
+        public int Points { get; set; }
+    }
+
 }
