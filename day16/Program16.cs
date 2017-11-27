@@ -5,14 +5,14 @@ using System.Linq;
 
 namespace day16
 {
-    public partial class Program15
+    public partial class Program16
     {
         public static void Main()
         {
             string source = File.ReadAllText(@"..\..\input.txt");
             List<string> instructions = source.Split('\n').Take(500).ToList();
 
-            List<AuntSue> auntSues = instructions.Select(i => new AuntSue(i)).ToList();
+            List<Program15.AuntSue> auntSues = instructions.Select(i => new Program15.AuntSue(i)).ToList();
             int auntForPartOne = FindAuntForPartOne(auntSues);
             int auntForPartTwo = FindAuntForPartTwo(auntSues);
 
@@ -22,7 +22,7 @@ namespace day16
             Console.ReadKey();
         }
 
-        private static int FindAuntForPartOne(IEnumerable<AuntSue> auntSues)
+        private static int FindAuntForPartOne(IEnumerable<Program15.AuntSue> auntSues)
         {
             return auntSues.First(a => (a.children == 3 || a.children == null) &&
                                        (a.cats == 7 || a.cats == null) &&
@@ -36,7 +36,7 @@ namespace day16
                                        (a.perfumes == 1 || a.perfumes == null)).Number;
         }
 
-        private static int FindAuntForPartTwo(IEnumerable<AuntSue> auntSues)
+        private static int FindAuntForPartTwo(IEnumerable<Program15.AuntSue> auntSues)
         {
             return auntSues.First(a => (a.children == 3 || a.children == null) &&
                                        (a.cats > 7 || a.cats == null) &&
