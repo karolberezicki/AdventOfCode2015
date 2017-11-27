@@ -16,12 +16,14 @@ namespace day15
             List<int[]> mixtures = GenerateMixtures(ingridients.Count);
 
             var scores = new List<int>();
+            var scoresFor500Cals = new List<int>();
             foreach (int[] mixture in mixtures)
             {
                 var cp = new List<int>();
                 var dr = new List<int>();
                 var fl = new List<int>();
                 var tx = new List<int>();
+                var cl = new List<int>();
 
                 for (int j = 0; j < mixture.Length; j++)
                 {
@@ -29,16 +31,26 @@ namespace day15
                     dr.Add(ingridients[j].Durability * mixture[j]);
                     fl.Add(ingridients[j].Flavor * mixture[j]);
                     tx.Add(ingridients[j].Texture * mixture[j]);
+                    cl.Add(ingridients[j].Calories * mixture[j]);
                 }
 
                 var subScores = new List<int> { cp.Sum(), dr.Sum(), fl.Sum(), tx.Sum() };
 
                 int score = subScores.Any(c => c < 0) ? 0 : subScores.Aggregate(1, (acc, val) => acc * val);
 
+                if (cl.Sum() == 500 && score > 0)
+                {
+                    scoresFor500Cals.Add(score);
+                }
+
                 scores.Add(score);
             }
 
             var maxScore = scores.Max();
+            var maxScoreFor500Cals = scoresFor500Cals.Max();
+
+            Console.WriteLine($"Total score of highest-scoring cookie: {maxScore}");
+            Console.WriteLine($"Total score of highest-scoring cookie thats exactly 500 Cals : {maxScoreFor500Cals}");
 
             Console.ReadKey();
         }
