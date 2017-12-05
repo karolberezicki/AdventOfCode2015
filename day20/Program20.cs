@@ -13,6 +13,12 @@ namespace day20
             var input = 34000000;
 
             int partOne = PartOne(input);
+            var partTwo = PartTwo(input);
+
+            Console.WriteLine($"Part one: {partOne}");
+            Console.WriteLine($"Part two: {partTwo}");
+
+            Console.ReadKey();
         }
 
 
@@ -21,6 +27,21 @@ namespace day20
             for (int houseNumber = 1; ; houseNumber++)
             {
                 int housePresents = Factor(houseNumber).Sum() * 10;
+
+                if (housePresents >= input)
+                {
+                    return houseNumber;
+                }
+            }
+        }
+
+        public static int PartTwo(int input)
+        {
+            for (int houseNumber = 1; ; houseNumber++)
+            {
+                var housePresents = Factor(houseNumber)
+                    .Where(c => houseNumber / c <= 50 || c == 1)
+                    .Sum() * 11;
 
                 if (housePresents >= input)
                 {
