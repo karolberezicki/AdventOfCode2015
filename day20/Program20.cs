@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace day20
 {
@@ -10,10 +8,10 @@ namespace day20
     {
         public static void Main(string[] args)
         {
-            var input = 34000000;
+            const int input = 34000000;
 
             int partOne = PartOne(input);
-            var partTwo = PartTwo(input);
+            int partTwo = PartTwo(input);
 
             Console.WriteLine($"Part one: {partOne}");
             Console.WriteLine($"Part two: {partTwo}");
@@ -39,7 +37,7 @@ namespace day20
         {
             for (int houseNumber = 1; ; houseNumber++)
             {
-                var housePresents = Factor(houseNumber)
+                int housePresents = Factor(houseNumber)
                     .Where(c => houseNumber / c <= 50 || c == 1)
                     .Sum() * 11;
 
@@ -54,14 +52,14 @@ namespace day20
         public static List<int> Factor(int number)
         {
             List<int> factors = new List<int>();
-            int max = (int)Math.Sqrt(number);  //round down
+            int max = (int)Math.Sqrt(number);
             for (int factor = 1; factor <= max; ++factor)
-            { //test from 1 to the square root, or the int below it, inclusive.
+            {
                 if (number % factor == 0)
                 {
                     factors.Add(factor);
                     if (factor != number / factor)
-                    { // Don't add the square root twice!  Thanks Jon
+                    {
                         factors.Add(number / factor);
                     }
                 }
